@@ -7,10 +7,14 @@
 
 #ifndef STOP_H_
 #define STOP_H_
+#include <iostream>
+using namespace std;
 
 class Stop {
+	string name;
+	int distanceToNext;
 public:
-	Stop();
+	Stop(string n, int distance);
 };
 
 #endif /* STOP_H_ */
