@@ -18,9 +18,10 @@ void Train::go(){
 	while(line.getStop(currentStop).getDistanceToNext()!= distance){
 		time++;
 		distance = time * speed;
+		cout << '.' << endl;
+		std::this_thread::sleep_for (std::chrono::seconds(1));
 	}
 	currentStop++;
-	std::this_thread::sleep_for (std::chrono::seconds(time));
 }
 
 void Train::goToEnd(){
