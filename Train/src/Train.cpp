@@ -27,11 +27,12 @@ void Train::go(){
 void Train::goToEnd(){
 	for (unsigned short i=0; i<line.size();i++){
 		if (i!=(line.size()-1))
-		go();
+			go();
 		else{
 			cout<<"Estás en la parada "<< line.getStop(currentStop).getName()<<endl;
 			stop();
-		}}
+		}
+	}
 }
 
 void Train::stop(){
