@@ -12,18 +12,24 @@ Train::Train(int speed, Line line) : speed(speed), line(line) {
 }
 
 void Train::go(){
-	int distance;
-	int time;
-	for(unsigned short i=currentStop;i<line.getStops().size();i++){
-		line.getStops()[i];
-		distance = 0;
-		time = 0;
-		while(line.getStops()[i].getDistanceToNext()!= distance){
-			time++;
-			distance = speed*time;
-		}
-		cout<<"Estás en la línea "<< line.getStops()[i].getName()<<endl;
-	}
+	int distance=0;
+	int time=0;
+	cout<<"Estás en la parada "<< line.getStop(currentStop).getName()<<endl;
+	while(line.getStop(currentStop).getDistanceToNext()!= distance){
+		time++;
+		distance = speed*time;
+//		cout<<time;
+	} currentStop++;
+}
+
+void Train::goToEnd(){
+	for (unsigned short i=0; i<line.size();i++){
+		if (i!=(line.size()-1))
+		go();
+		else{
+			cout<<"Estás en la parada "<< line.getStop(currentStop).getName()<<endl;
+			stop();
+		}}
 }
 
 void Train::stop(){

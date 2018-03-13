@@ -20,6 +20,7 @@ public:
 	int getCurrentStop() const {
 		return currentStop;
 	}
+	void goToEnd();
 };
 
 #endif /* TRAIN_H_ */

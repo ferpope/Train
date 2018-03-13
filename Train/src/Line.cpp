@@ -23,8 +23,8 @@ Stop* Line::findStop (string name){
 			return NULL;
 }
 
-const vector<Stop>& Line::getStops() const {
-	return stops;
+int Line::size(void){
+	return stops.size();
 }
 
 Line::Line() {

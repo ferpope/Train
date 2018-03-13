@@ -17,9 +17,9 @@ public:
 	void addStop (Stop s);
 	Stop getStop (int i);
 	Stop* findStop (string name);
-
+	int size(void);
 	Line();
-	const vector<Stop>& getStops() const;
+
 };
 
 #endif /* LINE_H_ */
