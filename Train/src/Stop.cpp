@@ -6,9 +6,8 @@
  */
 
 #include "Stop.h"
-
-Stop::Stop() {
-	// TODO Auto-generated constructor stub
-
+Stop::Stop(string n, int distance) {
+	name = n;
+	distanceToNext = distance;
 }
 
