@@ -17,7 +17,7 @@ Stop Line::getStop (int i){
 }
 Stop* Line::findStop (string name){
 	for (int i = 0; i< stops.size(); i++)
-		if (stops[i].name == name) {
+		if (stops[i].getName()== name) {
 			return &stops[i];
 		}
 			return NULL;
