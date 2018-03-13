@@ -7,10 +7,19 @@
 
 #ifndef TRAIN_H_
 #define TRAIN_H_
+#include "Line.h"
 
 class Train {
+	int speed;
+	int currentStop;
+	Line line;
 public:
-	Train();
+	Train(int speed, Line line);
+	void go();
+	void stop();
+	int getCurrentStop() const {
+		return currentStop;
+	}
 };
 
 #endif /* TRAIN_H_ */
