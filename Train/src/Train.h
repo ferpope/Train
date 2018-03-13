@@ -8,6 +8,8 @@
 #ifndef TRAIN_H_
 #define TRAIN_H_
 #include "Line.h"
+#include <thread>
+#include <chrono>
 
 class Train {
 	int speed;

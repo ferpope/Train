@@ -13,11 +13,12 @@ Train::Train(int speed, Line line) : speed(speed), line(line) {
 
 void Train::go(){
 	int distance=0;
-	int time=0;
+	int time;
 	cout<<"Estás en la parada "<< line.getStop(currentStop).getName()<<endl;
 	while(line.getStop(currentStop).getDistanceToNext()!= distance){
 		time++;
-		distance = speed*time;
+		distance = time * speed;
+		std::this_thread::sleep_for (std::chrono::seconds(time));
 //		cout<<time;
 	} currentStop++;
 }
