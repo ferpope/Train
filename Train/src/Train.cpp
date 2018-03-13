@@ -7,7 +7,8 @@
 
 #include "Train.h"
 
-Train::Train(int speed, Line line) : speed(speed), line(line) {}
+Train::Train(int speed, Line line) : speed(speed), line(line),
+currentStop(currentStop) {}
 
 void Train::go(){
 	int distance;
@@ -16,14 +17,15 @@ void Train::go(){
 		line.getStops()[i];
 		distance = 0;
 		time = 0;
-		while(line.distanceToNext>distance){
+		while(line.getStops()[i].getDistanceToNext()>distance){
 			time++;
 			distance = speed*time;
 		}
-		cout<<"Estás en la línea "<< line.getStops()[i].name<<endl;
+		cout<<"Estás en la línea "<< line.getStops()[i].getName<<endl;
 	}
 }
 
 void Train::stop(){
+
 	cout<<"Final de trayecto \n";
 }
