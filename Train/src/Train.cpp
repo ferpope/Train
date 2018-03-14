@@ -6,9 +6,12 @@
  */
 
 #include "Train.h"
+#include <iomanip>
 
 Train::Train(int speed, Line line) : speed(speed), line(line) {
-	currentStop = 0;
+	count++;
+	id = count;
+	currentStop=0;
 }
 
 void Train::go(){

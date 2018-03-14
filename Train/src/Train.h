@@ -15,6 +15,8 @@ class Train {
 	int speed;
 	int currentStop;
 	Line line;
+	int id;
+	static unsigned int count;
 public:
 	Train(int speed, Line line);
 	void go();
@@ -24,5 +26,7 @@ public:
 	}
 	void goToEnd();
 };
+
+unsigned int Train::count = 0;
 
 #endif /* TRAIN_H_ */
