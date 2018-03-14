@@ -15,12 +15,25 @@ void task1(Train t){
 	t.go();
 }
 
-void newTrain (int speed, Line l){
+void newTrain (Line l){
 	Train(speed, l);
 }
 
 int main(){
-
+	Stop sl1("A", 3);
+	Stop sl2("B", 2);
+	Stop sl3("C", 5);
+	Stop s1("Z", 2);
+	Stop s2("Y", 4);
+	Stop s3("X", 3);
+	Line l1;
+	Line l2;
+	l1.addStop(sl1);
+	l1.addStop(sl2);
+	l1.addStop(sl3);
+	l1.addStop(s1);
+	l1.addStop(s2);
+	l1.addStop(s3);
 	thread t(task1);
 	thread t2(task2);
 	t.join();
