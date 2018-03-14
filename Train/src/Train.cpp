@@ -17,13 +17,13 @@ Train::Train(int speed, Line line) : speed(speed), line(line) {
 }
 
 void Train::go(){
-	int distance=0;
+	distance=0;
 	int time=0;
-	cout<<"Estás en la parada "<< line.getStop(currentStop).getName()<<endl;
+	cout<<setw(10+id)<<line.getStop(currentStop).getName()<<endl;
 	while(line.getStop(currentStop).getDistanceToNext()!= distance){
 		time++;
 		distance = time * speed;
-		cout <<setw(id+1)<< '.' << endl;
+		cout <<setw(id+10)<< '.' << endl;
 		std::this_thread::sleep_for (std::chrono::seconds(1));
 	}
 	currentStop++;
@@ -34,13 +34,13 @@ void Train::goToEnd(){
 		if (i!=(line.size()-1))
 			go();
 		else{
-			cout<<setw(10+1)<< line.getStop(currentStop).getName()<<endl;
-			stop();
+			cout<<setw(10+id)<< line.getStop(currentStop).getName()<<endl;
+			//stop();
 		}
 	}
 }
 
 void Train::stop(){
-
-	cout<<"Final de trayecto \n";
+	currentStop++;
+	distance = line.getStop(currentStop).getDistanceToNext();
 }

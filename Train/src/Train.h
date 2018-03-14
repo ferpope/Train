@@ -14,6 +14,7 @@
 class Train {
 	int speed;
 	int currentStop;
+	unsigned int distance=0;
 	Line line;
 	int id;
 	static unsigned int count;
