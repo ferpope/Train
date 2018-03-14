@@ -27,6 +27,4 @@ public:
 	void goToEnd();
 };
 
-unsigned int Train::count = 0;
-
 #endif /* TRAIN_H_ */

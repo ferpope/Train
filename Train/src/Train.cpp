@@ -8,6 +8,8 @@
 #include "Train.h"
 #include <iomanip>
 
+unsigned int Train::count = 0;
+
 Train::Train(int speed, Line line) : speed(speed), line(line) {
 	count++;
 	id = count;

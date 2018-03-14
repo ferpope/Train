@@ -34,10 +34,13 @@ int main(){
 	l1.addStop(s1);
 	l1.addStop(s2);
 	l1.addStop(s3);
-	thread t(task1);
-	thread t2(task2);
-	t.join();
-	t2.join();
+	Train t(1,l1);
+	t.go();
+
+//	thread t(task1);
+//	thread t2(task2);
+//	t.join();
+//	t2.join();
 
 }
 // void task2(){
