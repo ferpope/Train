@@ -15,9 +15,7 @@ void task1(Train t){
 	t.go();
 }
 
-void newTrain (Line l){
-	Train(1, l);
-}
+
 
 int main(){
 	Stop sl1("A", 3);
@@ -31,16 +29,15 @@ int main(){
 	l1.addStop(sl1);
 	l1.addStop(sl2);
 	l1.addStop(sl3);
-	l1.addStop(s1);
-	l1.addStop(s2);
-	l1.addStop(s3);
-	Train t(1,l1);
-	t.go();
-
-//	thread t(task1);
-//	thread t2(task2);
-//	t.join();
-//	t2.join();
+	l2.addStop(s1);
+	l2.addStop(s2);
+	l2.addStop(s3);
+	Train train1 (1,l1);
+	Train train2 (1,l2);
+	thread t1(task2, train1);
+	thread t2(task2, train2);
+	t1.join();
+	t2.join();
 
 }
 // void task2(){
