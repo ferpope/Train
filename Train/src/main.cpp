@@ -6,6 +6,8 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 #include "Train.h"
+#include <mutex>
+mutex mtx;
 
 void task2(Train t){
 	t.goToEnd();

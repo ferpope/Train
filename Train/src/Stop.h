@@ -8,7 +8,10 @@
 #ifndef STOP_H_
 #define STOP_H_
 #include <iostream>
+
 using namespace std;
+
+
 
 class Stop {
 	string name;
