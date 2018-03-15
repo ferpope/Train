@@ -6,8 +6,11 @@
  */
 
 #include "Stop.h"
-Stop::Stop(string n, int distance) {
+Stop::Stop(string n, int distance, int platform) {
 	name = n;
 	distanceToNext = distance;
+	for(int i=0; i<platform;i++){
+		s.notify();
+	}
 }
 

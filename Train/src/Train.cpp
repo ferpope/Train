@@ -20,7 +20,7 @@ void Train::go(){
 
 	distance=0;
 	int time=0;
-	cout<<"tren"<<id<<setw(id*10)<<line->getStop(currentStop)->getName()<<endl;
+	cout<<setw(id*10)<<"tren"<<id<<": "<<line->getStop(currentStop)->getName()<<endl;
 
 	while(line->getStop(currentStop)->getDistanceToNext()!= distance){
 		time++;
@@ -28,10 +28,11 @@ void Train::go(){
 		cout <<setw(id*10)<<id<< '*' << endl;
 		std::this_thread::sleep_for (std::chrono::seconds(1));
 	}
-	cout<<id<<" Esperando: "<<line->getStop(currentStop)->getName() << endl;
-	lock_guard<mutex> guard(line->stops[currentStop+1]->m);
-	cout<<id<<" .Parada: "<<line->getStop(currentStop)->getName() << endl;
+	cout<<setw(id*5) << id + " Esperando: " + line->getStop(currentStop)->getName() << endl;
+	line->getStop(currentStop)->s.wait();
+	cout<<setw(id*10)<<id<<" .Parada: "<<line->getStop(currentStop)->getName() << endl;
 	std::this_thread::sleep_for (std::chrono::seconds(4));
+	line->getStop(currentStop)->s.notify();
 	currentStop++;
 
 }

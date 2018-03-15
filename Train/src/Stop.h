@@ -8,7 +8,7 @@
 #ifndef STOP_H_
 #define STOP_H_
 #include <iostream>
-#include  <mutex>
+#include  "semaphore.cpp"
 
 using namespace std;
 
@@ -17,9 +17,10 @@ using namespace std;
 class Stop {
 	string name;
 	int distanceToNext;
+
 public:
-	mutex m;
-	Stop(string n, int distance);
+	Semaphore s;
+	Stop(string n, int distance, int platform = 2);
 
 	int getDistanceToNext() const {
 		return distanceToNext;

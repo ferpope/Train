@@ -7,19 +7,22 @@ CPP_SRCS += \
 ../src/Line.cpp \
 ../src/Stop.cpp \
 ../src/Train.cpp \
-../src/main.cpp 
+../src/main.cpp \
+../src/semaphore.cpp 
 
 OBJS += \
 ./src/Line.o \
 ./src/Stop.o \
 ./src/Train.o \
-./src/main.o 
+./src/main.o \
+./src/semaphore.o 
 
 CPP_DEPS += \
 ./src/Line.d \
 ./src/Stop.d \
 ./src/Train.d \
-./src/main.d 
+./src/main.d \
+./src/semaphore.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
