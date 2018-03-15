@@ -29,17 +29,24 @@ void stopCreation(Line* l, string nameStop, int distance){
 
 int main(){
 	Line* l1 = new Line;
-	stopCreation(l1,"Midgard", 1);
-	stopCreation(l1,"Asgard", 1);
-	stopCreation(l1,"Hel", 1);
+	Stop* s1 = new Stop("Midgard", 1);
+	Stop* s2 = new Stop("Asgard", 1);
+	Stop* s3 = new Stop("Hel", 1);
+	Stop* s4 = new Stop("Tres Cantos", 1);
+	l1->addStop(s1);
+	l1->addStop(s2);
+	l1->addStop(s3);
 	Line* l2= new Line;
+	l2->addStop(s4);
+	l2->addStop(s2);
+	l2->addStop(s3);
 	Train* train1 = new Train(1,l1);
-//	stopCreation(l2, "Paraíso", 3);
-//	stopCreation(l2, "Limbo", 4);
-//	stopCreation(l2, "Midgard", 2);
-//	stopCreation(l2, "Infierno", 2);
+	//	stopCreation(l2, "Paraíso", 3);
+	//	stopCreation(l2, "Limbo", 4);
+	//	stopCreation(l2, "Midgard", 2);
+	//	stopCreation(l2, "Infierno", 2);
 
-	stopCreation(l2, "Midgard", 1);
+	stopCreation(l2, "Caribe", 1);
 	stopCreation(l2, "Asgard", 1);
 	stopCreation(l2, "Antártida", 1);
 	stopCreation(l2, "Hel", 1);
