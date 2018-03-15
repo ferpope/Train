@@ -10,7 +10,7 @@
 
 unsigned int Train::count = 0;
 
-Train::Train(int speed, Line line) : speed(speed), line(line) {
+Train::Train(int speed, Line* line) : speed(speed), line(line) {
 	count++;
 	id = count;
 	currentStop=0;
@@ -21,6 +21,7 @@ void Train::go(){
 	distance=0;
 	int time=0;
 	cout<<setw(10+id)<<line.getStop(currentStop).getName()<<endl;
+	lock_guard<mutex> guard(stops[i]->m);
 	while(line.getStop(currentStop).getDistanceToNext()!= distance){
 		time++;
 		distance = time * speed;
