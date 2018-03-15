@@ -17,6 +17,7 @@ Train::Train(int speed, Line line) : speed(speed), line(line) {
 }
 
 void Train::go(){
+
 	distance=0;
 	int time=0;
 	cout<<setw(10+id)<<line.getStop(currentStop).getName()<<endl;

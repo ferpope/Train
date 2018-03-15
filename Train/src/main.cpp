@@ -9,7 +9,7 @@
 #include <mutex>
 #include <vector>
 using namespace std;
-mutex mtx;
+
 
 void task2(Train t){
 	t.goToEnd();
@@ -24,9 +24,10 @@ void stopCreation(Line& l, string nameStop, int distance){
 	l.addStop(s);
 }
 
+
+
+
 int main(){
-	vector <mutex*> lockets;
-	lockets.push_back(&mtx);
 	Line l1;
 	stopCreation(l1,"Asgard", 1);
 	stopCreation(l1,"Midgard", 4);
