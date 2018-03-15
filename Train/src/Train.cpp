@@ -17,31 +17,33 @@ Train::Train(int speed, Line* line) : speed(speed), line(line) {
 }
 
 void Train::go(){
-
 	distance=0;
 	int time=0;
-	cout<<setw(10+id)<<line.getStop(currentStop).getName()<<endl;
-	lock_guard<mutex> guard(stops[i]->m);
-	while(line.getStop(currentStop).getDistanceToNext()!= distance){
+	cout<<"tren"<<id<<setw(10+id)<<line->getStop(currentStop)->getName()<<endl;
+	lock_guard<mutex> guard(line->stops[currentStop]->m);
+	while(line->getStop(currentStop)->getDistanceToNext()!= distance){
 		time++;
 		distance = time * speed;
-		cout <<setw(id+10)<< '.' << endl;
+		cout <<setw(id+10)<<id<< '.' << endl;
 		std::this_thread::sleep_for (std::chrono::seconds(1));
 	}
+	cout<<id<<" .Estoy en parada: "<<line->getStop(currentStop)->getName();
+	std::this_thread::sleep_for (std::chrono::seconds(4));
 	currentStop++;
+
 }
 
 void Train::goToEnd(){
-	for (unsigned short i=0; i<line.size();i++){
-		if (i!=(line.size()-1))
+	for (unsigned short i=0; i<line->size();i++){
+		if (i!=(line->size()-1))
 			go();
 		else{
-			cout<<setw(10+id)<< line.getStop(currentStop).getName()<<endl;
+			cout<<setw(10+id)<< line->getStop(currentStop)->getName()<<endl;
 		}
 	}
 }
 
 void Train::stop(){
 	currentStop++;
-	distance = line.getStop(currentStop).getDistanceToNext();
+	distance = line->getStop(currentStop)->getDistanceToNext();
 }

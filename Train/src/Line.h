@@ -12,8 +12,9 @@ using namespace std;
 #define LINE_H_
 
 class Line {
-	vector <*Stop> stops;
+
 public:
+	vector <Stop*> stops;
 	void addStop (Stop* s);
 	Stop* getStop (int i);
 	Stop* findStop (string name);

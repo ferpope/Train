@@ -11,15 +11,15 @@
 using namespace std;
 
 
-void task2(Train t){
+void task2(Train* t){
 	t->goToEnd();
 }
 
-void task1(Train t){
+void task1(Train* t){
 	t->go();
 }
 
-void stopCreation(Line l, string nameStop, int distance){
+void stopCreation(Line* l, string nameStop, int distance){
 	Stop* s = new Stop(nameStop, distance);
 	l->addStop(s);
 }
@@ -28,11 +28,11 @@ void stopCreation(Line l, string nameStop, int distance){
 
 
 int main(){
-	Line l1;
+	Line* l1 = new Line;
 	stopCreation(l1,"Asgard", 1);
 	stopCreation(l1,"Midgard", 4);
 	stopCreation(l1,"Hel", 2);
-	Line l2;
+	Line* l2= new Line;
 	Train* train1 = new Train(1,l1);
 	stopCreation(l2, "Paraíso", 3);
 	stopCreation(l2, "Limbo", 4);

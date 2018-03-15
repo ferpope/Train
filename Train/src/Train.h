@@ -19,7 +19,7 @@ class Train {
 	int id;
 	static unsigned int count;
 public:
-	Train(int speed, Line line);
+	Train(int speed, Line* line);
 	void go();
 	void stop();
 	int getCurrentStop() const {
