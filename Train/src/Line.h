@@ -12,10 +12,10 @@ using namespace std;
 #define LINE_H_
 
 class Line {
-	vector <Stop> stops;
+	vector <*Stop> stops;
 public:
-	void addStop (Stop s);
-	Stop getStop (int i);
+	void addStop (Stop* s);
+	Stop* getStop (int i);
 	Stop* findStop (string name);
 	int size(void);
 	Line();
