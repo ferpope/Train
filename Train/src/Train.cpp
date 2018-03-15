@@ -17,17 +17,18 @@ Train::Train(int speed, Line* line) : speed(speed), line(line) {
 }
 
 void Train::go(){
+	lock_guard<mutex> guard(line->stops[currentStop]->m);
 	distance=0;
 	int time=0;
-	cout<<"tren"<<id<<setw(10+id)<<line->getStop(currentStop)->getName()<<endl;
-	lock_guard<mutex> guard(line->stops[currentStop]->m);
+	cout<<"tren"<<id<<setw(id*10)<<line->getStop(currentStop)->getName()<<endl;
+
 	while(line->getStop(currentStop)->getDistanceToNext()!= distance){
 		time++;
 		distance = time * speed;
-		cout <<setw(id+10)<<id<< '.' << endl;
+		cout <<setw(id*10)<<id<< '*' << endl;
 		std::this_thread::sleep_for (std::chrono::seconds(1));
 	}
-	cout<<id<<" .Estoy en parada: "<<line->getStop(currentStop)->getName();
+	cout<<id<<" .Parada: "<<line->getStop(currentStop)->getName();
 	std::this_thread::sleep_for (std::chrono::seconds(4));
 	currentStop++;
 
