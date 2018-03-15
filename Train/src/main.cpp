@@ -12,16 +12,16 @@ using namespace std;
 
 
 void task2(Train t){
-	t.goToEnd();
+	t->goToEnd();
 }
 
 void task1(Train t){
-	t.go();
+	t->go();
 }
 
-void stopCreation(Line& l, string nameStop, int distance){
-	Stop s(nameStop, distance);
-	l.addStop(s);
+void stopCreation(Line l, string nameStop, int distance){
+	Stop* s = new Stop(nameStop, distance);
+	l->addStop(s);
 }
 
 
@@ -33,12 +33,12 @@ int main(){
 	stopCreation(l1,"Midgard", 4);
 	stopCreation(l1,"Hel", 2);
 	Line l2;
-	Train train1 (1,l1);
+	Train* train1 = new Train(1,l1);
 	stopCreation(l2, "Paraíso", 3);
 	stopCreation(l2, "Limbo", 4);
 	stopCreation(l2, "Midgard", 2);
 	stopCreation(l2, "Infierno", 2);
-	Train train2 (1,l2);
+	Train* train2 = new Train(1,l2);
 	stopCreation(l2, "Caribe", 1);
 	stopCreation(l2, "Paraíso", 3);
 	stopCreation(l2, "Antártida", 3);
@@ -48,4 +48,3 @@ int main(){
 	t1.join();
 	t2.join();
 }
-
