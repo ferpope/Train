@@ -7,6 +7,8 @@
 //============================================================================
 #include "Train.h"
 #include <mutex>
+#include <vector>
+using namespace std;
 mutex mtx;
 
 void task2(Train t){
@@ -23,6 +25,8 @@ void stopCreation(Line& l, string nameStop, int distance){
 }
 
 int main(){
+	vector <mutex*> lockets;
+	lockets.push_back(&mtx);
 	Line l1;
 	stopCreation(l1,"Asgard", 1);
 	stopCreation(l1,"Midgard", 4);

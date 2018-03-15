@@ -35,7 +35,6 @@ void Train::goToEnd(){
 			go();
 		else{
 			cout<<setw(10+id)<< line.getStop(currentStop).getName()<<endl;
-			//stop();
 		}
 	}
 }
