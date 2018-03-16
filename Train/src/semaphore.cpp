@@ -11,7 +11,7 @@ public:
 
     void notify() {
         unique_lock<mutex> lock(mu);
-
+        cout<<"notificando..."<<endl;
         count++;
         condition.notify_one();
     }
